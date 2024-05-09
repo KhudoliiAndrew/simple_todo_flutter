@@ -4,9 +4,9 @@
 
 `com.khudolii.tasksgobrr`
 
-## Architecture
+## Set up
 
-For more info about architecture head to this [link](/docs/ARCHITECTURE.md).
+For more info about architecture head to this [link](/docs/SET_UP).
 
 ## Build
 
