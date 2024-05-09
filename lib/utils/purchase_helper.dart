@@ -66,6 +66,9 @@ class PurchaseHelper {
         case PurchaseStatus.restored:
           purchasedProducts.add(purchaseDetails.productID);
           break;
+        case PurchaseStatus.canceled:
+          print("error");
+          break;
       }
     });
   }

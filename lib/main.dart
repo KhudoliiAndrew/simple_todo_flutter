@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -41,7 +43,8 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    NotificationAlarmManager.init(context);
+    if(Platform.isAndroid)
+      NotificationAlarmManager.init(context);
 
     return FutureBuilder(
       future: _model.initRepo(context),

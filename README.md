@@ -1,10 +1,8 @@
-# Date Frank
+# Tasks go brr
 
 ## Bundle Id
 
-`co.datefrank.app`
-`co.datefrank.app.stage`
-`co.datefrank.app.qa`
+`com.khudolii.tasksgobrr`
 
 ## Architecture
 

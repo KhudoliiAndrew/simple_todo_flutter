@@ -60,7 +60,7 @@ class Paddings {
   static const small_half = 4.5;
 }
 
-class Durations {
+class AppDurations {
   static const milliseconds_short = Duration(milliseconds: 200);
   static const milliseconds_middle = Duration(milliseconds: 400);
 

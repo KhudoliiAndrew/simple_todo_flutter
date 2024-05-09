@@ -78,14 +78,14 @@ class _MainPageState extends BaseState<MainPage> {
         navBarHeight: Dimens.bottom_app_bar_height,
         popAllScreensOnTapOfSelectedTab: true,
         popActionScreens: PopActionScreensType.all,
-        itemAnimationProperties: ItemAnimationProperties(
-          duration: Durations.milliseconds_short,
+        itemAnimationProperties: const ItemAnimationProperties(
+          duration: AppDurations.milliseconds_short,
           curve: Curves.ease,
         ),
-        screenTransitionAnimation: ScreenTransitionAnimation(
+        screenTransitionAnimation: const ScreenTransitionAnimation(
           animateTabTransition: true,
           curve: Curves.ease,
-          duration: Durations.milliseconds_short,
+          duration: AppDurations.milliseconds_short,
         ),
         navBarStyle: NavBarStyle.style7,
       ),

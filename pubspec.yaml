@@ -6,14 +6,13 @@ publish_to: 'none'
 version: 0.3.2
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: '>=3.2.3 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
 
   persistent_bottom_nav_bar: ^4.0.2
-  cupertino_icons: ^1.0.3
   day_night_time_picker: ^1.0.2
   implicitly_animated_reorderable_list_2: ^0.5.1
   flutter_slidable: ^0.6.0
@@ -44,20 +43,22 @@ dependencies:
   hive: ^2.0.4
   path_provider: ^2.0.2
 
-  firebase_core: ^2.17.0
-  firebase_auth: ^4.10.1
-  google_sign_in: ^6.1.6
-  cloud_firestore: ^4.9.3
-  firebase_storage: ^11.2.8
-
-  firebase_crashlytics: ^3.3.7
-
   in_app_purchase: ^3.1.11
+
+  cupertino_icons: ^1.0.2
+  firebase_core: ^2.27.0
+  firebase_crashlytics: ^3.4.18
+  cloud_firestore: ^4.15.8
+  firebase_auth: ^4.17.8
+  firebase_analytics: ^10.8.9
+  firebase_storage: ^11.6.9
+  google_sign_in: ^6.2.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  flutter_lints: ^2.0.0
   hive_generator: ^2.0.1
   build_runner: ^2.0.4
 

@@ -241,7 +241,7 @@ class _TaskItemState extends State<_TaskItem> with TickerProviderStateMixin {
               ),
             ),
             Handle(
-              delay: Durations.handle_short,
+              delay: AppDurations.handle_short,
               child: Icon(
                 IconsC.handle,
                 color: context.onSurface,

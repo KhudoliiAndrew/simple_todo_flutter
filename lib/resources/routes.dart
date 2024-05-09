@@ -36,7 +36,6 @@ abstract class Routes {
   }
 
   static Future<dynamic> toMainPage(BuildContext context) async {
-    print("herer2");
     return await Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (context) => MainPage()),
     );

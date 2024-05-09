@@ -104,7 +104,7 @@ class _PlanPageState extends State<PlanPage> {
                   0)
                 _cDayPages.animateToPage(
                     _model.getPositionOfCenterDate(),
-                    duration: Durations.milliseconds_middle,
+                    duration: AppDurations.milliseconds_middle,
                     curve: Curves.fastOutSlowIn);
               else if (!_centerDate.isSameDate(DateTime.now().onlyDate()))
                 setState(() => _centerDate = DateTime.now().onlyDate());
@@ -168,7 +168,7 @@ class _PlanPageState extends State<PlanPage> {
       },
       onPageChanged: (index) async {
         _cDayTitles.animateToPage(index,
-            duration: Durations.milliseconds_middle,
+            duration: AppDurations.milliseconds_middle,
             curve: Curves.fastOutSlowIn);
       },
       pageSnapping: true,
@@ -205,11 +205,11 @@ class _PlanPageState extends State<PlanPage> {
 
   _centerPages() {
     _cDayTitles.animateToPage(_model.getPositionOfCenterDate(),
-        duration: Durations.milliseconds_middle,
+        duration: AppDurations.milliseconds_middle,
         curve: Curves.fastOutSlowIn);
 
     _cDayPages.animateToPage(_model.getPositionOfCenterDate(),
-        duration: Durations.milliseconds_middle,
+        duration: AppDurations.milliseconds_middle,
         curve: Curves.fastOutSlowIn);
 
     currentPageValue = _model.getPositionOfCenterDate().toDouble();

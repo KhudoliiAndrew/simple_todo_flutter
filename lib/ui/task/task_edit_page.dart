@@ -323,7 +323,7 @@ class _TaskEditPageState extends State<TaskEditPage> with TickerProviderStateMix
                           ),
                         ),
                         Handle(
-                          delay: Durations.handle_short,
+                          delay: AppDurations.handle_short,
                           child: Icon(
                             IconsC.handle,
                             color: context.onSurface,

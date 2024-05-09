@@ -728,7 +728,7 @@ class _ProfileWidgetState extends State<_ProfileWidget> {
   Widget _loadingPlaceholder() {
     return AnimatedOpacity(
       opacity: _isLoaded ? 0 : 1,
-      duration: Durations.milliseconds_short,
+      duration: AppDurations.milliseconds_short,
       child: Shimmer.fromColors(
         baseColor: context.surface.withOpacity(.6),
         highlightColor: context.surface,
@@ -779,7 +779,7 @@ class _ProfileWidgetState extends State<_ProfileWidget> {
   Widget _userInfo() {
     return AnimatedOpacity(
       opacity: _isLoaded ? 1 : 0,
-      duration: Durations.milliseconds_middle,
+      duration: AppDurations.milliseconds_middle,
       child: _isLoaded ? Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [

@@ -2,6 +2,7 @@ import 'package:async/async.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:tasks_go_brr/data/models/settings/settings.dart';
 import 'package:tasks_go_brr/data/repositories/settings_repository.dart';
@@ -17,13 +18,10 @@ class SplashPageViewModel {
 
   initializeData(BuildContext context) async {
     //return _memoizer.runOnce(() async {
-      print("waiting for init");
       _user = await Authentication.initializeFirebase();
 
-      print("waiting for repo");
       await initRepo(context);
 
-      print("waiting for crashlytics");
       initCrashlytics();
 
       goToPage(context);
@@ -36,8 +34,11 @@ class SplashPageViewModel {
   }
 
   initCrashlytics() {
-    FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
-    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
+    PlatformDispatcher.instance.onError = (error, stack) {
+      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+      return true;
+    };
+    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   }
 
   syncLocalization(BuildContext context) {

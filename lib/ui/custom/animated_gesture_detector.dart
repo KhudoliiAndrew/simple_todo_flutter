@@ -28,7 +28,7 @@ class AnimatedGestureDetectorState extends State<AnimatedGestureDetector> with S
   void initState() {
     _animate = AnimationController(
         vsync: this,
-        duration: Durations.milliseconds_short,
+        duration: AppDurations.milliseconds_short,
         lowerBound: 0.0,
         upperBound: 0.1)
       ..addListener(() {
