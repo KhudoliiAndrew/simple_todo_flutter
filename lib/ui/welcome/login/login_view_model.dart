@@ -1,14 +1,21 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:tasks_go_brr/data/models/dev_settings.dart';
+import 'package:tasks_go_brr/data/repositories/remote/dev_settings_repository.dart';
 import 'package:tasks_go_brr/data/repositories/remote/user_info_repository.dart';
-import 'package:tasks_go_brr/resources/constants.dart';
 import 'package:tasks_go_brr/resources/routes.dart';
 import 'package:tasks_go_brr/utils/authentication.dart';
 import 'package:tasks_go_brr/data/models/user_info/user_info.dart' as usr;
-import 'package:tasks_go_brr/utils/links.dart';
 
 class LoginViewModel {
   UserInfoRepository _repo = UserInfoRepository();
+  final DevSettingsRepository _repoSettings = DevSettingsRepository();
+
+  DevSettings devSettings = DevSettings();
+
+  init() async {
+    devSettings = await _repoSettings.getDevSettings();
+  }
 
   Future authUser(BuildContext context) async {
     if (FirebaseAuth.instance.currentUser != null)
@@ -34,7 +41,9 @@ class LoginViewModel {
         photoURL: user.photoURL));
   }
 
-  openPrivacyPolicy() async {
-    await Links.openLink(AppInfo.URL_PRIVACY_POLICY);
+  openPrivacyPolicy(BuildContext context) async {
+    Routes.showPrivacyPolicyPage(context, ppUrl: devSettings.privacyPolicyURL);
+
+    //await Links.openLink(devSettings.privacyPolicyURL ?? AppInfo.URL_PRIVACY_POLICY);
   }
 }

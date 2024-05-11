@@ -13,7 +13,7 @@ class Constants {
 class AppInfo {
   static const IC_APP_FULL_PATH = ImagePath.APP_FULL_PATH;
   static const APP_NAME = "Tasks go brr";
-  static const URL_PRIVACY_POLICY = "https://khudoliiandrew.github.io/TasksPrivacyPolicy/PrivacyPolicy.html";
+  static const URL_PRIVACY_POLICY = "https://khudolia.github.io/TasksPrivacyPolicy/";
 }
 
 class Profile {
@@ -115,6 +115,7 @@ class UserInfoFields {
 
 class DevSettingsFields {
   static const String EMPTY_PHOTO_URL = "empty_photo_url";
+  static const String PRIVACY_POLICY_URL = "privacy_policy_url";
 }
 
 class Storage {

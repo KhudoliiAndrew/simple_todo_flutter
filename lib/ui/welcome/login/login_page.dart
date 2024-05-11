@@ -16,7 +16,13 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  LoginViewModel _model = LoginViewModel();
+  final LoginViewModel _model = LoginViewModel();
+
+  @override
+  void initState() {
+    _model.init();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -77,23 +83,24 @@ class _LoginPageState extends State<LoginPage> {
                 child: Container(
                   alignment: Alignment.bottomCenter,
                   margin: EdgeInsets.symmetric(horizontal: Margin.middle.w),
-                  child: RichText(
-                    textAlign: TextAlign.center,
-                    softWrap: true,
-                    text: new TextSpan(
-                        text: "p_c.description".tr(),
-                        children: [
-                          new TextSpan(
-                              text: "p_c.privacy_policy".tr() + ".",
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () => _model.openPrivacyPolicy(),
-                              style: TextStyle(
-                                  color: context.primary,
-                                  fontWeight: FontWeight.w500))
-                        ],
-                        style: TextStyle(
-                          color: context.onSurface,
-                        )),
+                  child: GestureDetector(
+                    onTap: () => _model.openPrivacyPolicy(context),
+                    child: RichText(
+                      textAlign: TextAlign.center,
+                      softWrap: true,
+                      text: TextSpan(
+                          text: "p_c.description".tr(),
+                          children: [
+                            TextSpan(
+                                text: "p_c.privacy_policy".tr() + ".",
+                                style: TextStyle(
+                                    color: context.primary,
+                                    fontWeight: FontWeight.w500))
+                          ],
+                          style: TextStyle(
+                            color: context.onSurface,
+                          )),
+                    ),
                   ),
                 ),
               ),

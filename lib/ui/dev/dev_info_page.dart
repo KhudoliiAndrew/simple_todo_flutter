@@ -24,9 +24,9 @@ class _DevInfoPageState extends State<DevInfoPage> {
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return Container(
-              decoration: new BoxDecoration(
+              decoration: BoxDecoration(
                   color: context.surface,
-                  borderRadius: new BorderRadius.only(
+                  borderRadius: BorderRadius.only(
                       topLeft: Radiuss.middle, topRight: Radiuss.middle)),
               child: Container(
                   margin: EdgeInsets.only(

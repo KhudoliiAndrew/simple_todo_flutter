@@ -15,9 +15,9 @@ import 'package:provider/provider.dart';
 import 'package:tasks_go_brr/utils/locale.dart';
 
 class SettingsViewModel {
-  SettingsRepository _repo = SettingsRepository();
-  UserInfoRepository _repoUser = UserInfoRepository();
-  DevSettingsRepository _repoSettings = DevSettingsRepository();
+  final SettingsRepository _repo = SettingsRepository();
+  final UserInfoRepository _repoUser = UserInfoRepository();
+  final DevSettingsRepository _repoSettings = DevSettingsRepository();
 
   Settings settings = Settings();
   DevSettings devSettings = DevSettings();

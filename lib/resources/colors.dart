@@ -29,18 +29,18 @@ extension Colorss on BuildContext {
 
   Color getColorByBrightness(Color color) =>
       ThemeData.estimateBrightnessForColor(color) == Brightness.dark
-          ? this.onPrimary
-          : this.onSurface;
+          ? onPrimary
+          : onSurface;
 
   setNavBarColorLight() =>
       SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-        systemNavigationBarColor: this.surface,
-        systemNavigationBarDividerColor: this.surface,
+        systemNavigationBarColor: surface,
+        systemNavigationBarDividerColor: surface,
       ));
 
   setNavBarColorDark() =>
       SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-        systemNavigationBarColor: this.background,
-        systemNavigationBarDividerColor: this.background,
+        systemNavigationBarColor: background,
+        systemNavigationBarDividerColor: background,
       ));
 }

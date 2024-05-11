@@ -1,5 +1,4 @@
 import 'package:day_night_time_picker/day_night_time_picker.dart';
-import 'package:day_night_time_picker/lib/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tasks_go_brr/data/models/dev_settings.dart';
@@ -18,6 +17,7 @@ import 'package:tasks_go_brr/ui/task/task_edit_page.dart';
 import 'package:tasks_go_brr/ui/task/task_regularly/task_reg_edit_page.dart';
 import 'package:tasks_go_brr/ui/user/user_edit_page.dart';
 import 'package:tasks_go_brr/ui/welcome/login/login_page.dart';
+import 'package:tasks_go_brr/ui/welcome/privacy_policy_page.dart';
 import 'package:tasks_go_brr/ui/welcome/splash/splash_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -39,6 +39,29 @@ abstract class Routes {
     return await Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (context) => MainPage()),
     );
+  }
+
+  static Future<dynamic> showPrivacyPolicyPage(
+    BuildContext context, {
+    required String ppUrl,
+  }) async {
+    context.setNavBarColorLight();
+    var result = await showModalBottomSheet(
+        context: context,
+        enableDrag: true,
+        isScrollControlled: true,
+        scrollControlDisabledMaxHeightRatio: 20,
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        builder: (context) {
+          return FractionallySizedBox(
+            heightFactor: 0.7,
+            child: PrivacyPolicyPage(ppUrl: ppUrl),
+          );
+        });
+    context.setNavBarColorDark();
+
+    return result;
   }
 
   static Future<dynamic> showTagDialog(
