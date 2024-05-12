@@ -26,6 +26,27 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final loginButton = AnimatedGestureDetector(
+      onTap: () => _model.authUser(context),
+      child: Container(
+        decoration: BoxDecoration(
+          color: context.primary,
+          borderRadius: BorderRadius.all(Radiuss.middle),
+        ),
+        padding: EdgeInsets.symmetric(
+          horizontal: Paddings.big.w,
+          vertical: Paddings.small.h,
+        ),
+        child: Text(
+          "action.log_in".tr(),
+          style: TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: Dimens.text_normal_bigger,
+              color: context.onPrimary),
+        ),
+      ),
+    );
+
     return Scaffold(
       backgroundColor: context.background,
       body: Stack(
@@ -57,23 +78,7 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   height: Margin.big.h,
                 ),
-                AnimatedGestureDetector(
-                    onTap: () async => await _model.authUser(context),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: context.primary,
-                          borderRadius: BorderRadius.all(Radiuss.small)),
-                      padding: EdgeInsets.symmetric(
-                          horizontal: Paddings.big.w,
-                          vertical: Paddings.middle_smaller.h),
-                      child: Text(
-                        "action.log_in".tr(),
-                        style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: Dimens.text_normal_bigger,
-                            color: context.onPrimary),
-                      ),
-                    )),
+                loginButton,
               ],
             ),
           ),

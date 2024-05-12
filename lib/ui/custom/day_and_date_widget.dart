@@ -19,35 +19,34 @@ class _DayAndDateWidgetState extends State<DayAndDateWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(
-          left: Margin.middle
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            widget.date.weekday.getDayTitle(),
-            style: TextStyle(
-                color: Color.lerp(context.surface,
-                  context.surface.withOpacity(0.0), widget.colorOffset)!,
-              fontSize: Dimens.text_big,
-              fontWeight: FontWeight.bold
-          ),),
-          SizedBox(
-            height: Margin.small,
-          ),
-          Text(
-            "day_of_month".tr(namedArgs: {
-              "day": widget.date.day.toString(),
-              "month": widget.date.month.getMonthTitle().toString()
-            }),
-            style: TextStyle(
-                color: Color.lerp(context.surface,
-                    context.surface.withOpacity(0.0), widget.colorOffset)!,
-                fontSize: Dimens.text_normal_smaller,
-                fontWeight: FontWeight.w500
-            ),),
-        ],
+      margin: const EdgeInsets.only(left: Margin.middle),
+      child: SingleChildScrollView(
+        physics: const NeverScrollableScrollPhysics(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              widget.date.weekday.getDayTitle(),
+              style: TextStyle(
+                  color: Color.lerp(context.surface,
+                      context.surface.withOpacity(0.0), widget.colorOffset)!,
+                  fontSize: Dimens.text_big,
+                  fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: Margin.small),
+            Text(
+              "day_of_month".tr(namedArgs: {
+                "day": widget.date.day.toString(),
+                "month": widget.date.month.getMonthTitle().toString()
+              }),
+              style: TextStyle(
+                  color: Color.lerp(context.surface,
+                      context.surface.withOpacity(0.0), widget.colorOffset)!,
+                  fontSize: Dimens.text_normal_smaller,
+                  fontWeight: FontWeight.w500),
+            ),
+          ],
+        ),
       ),
     );
   }
