@@ -159,11 +159,13 @@ abstract class Routes {
     return Navigator.of(context).pop(result);
   }
 
-  static Future<DateTime?> showTimePicker(BuildContext context,
-      {DateTime? value,
-      bool isFromRoot = true,
-      bool? isFirstHalfOfDay,
-      bool isDeleteWhenHas = false}) async {
+  static Future<DateTime?> showTimePicker(
+    BuildContext context, {
+    DateTime? value,
+    bool isFromRoot = true,
+    bool? isFirstHalfOfDay,
+    bool isDeleteWhenHas = false,
+  }) async {
     TimeOfDay? result;
     final rootContext = isFromRoot
         ? Provider.of<RootData>(context, listen: false).rootContext
@@ -188,6 +190,7 @@ abstract class Routes {
         onChange: (time) => result = time,
         accentColor: context.primaryAccent,
         unselectedColor: context.onSurfaceAccent,
+        backgroundColor: context.surface,
         barrierColor: Colors.black54,
         themeData: ThemeData(
           colorScheme: ColorScheme.dark(
