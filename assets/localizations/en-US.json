@@ -160,7 +160,10 @@
   "profile": {
     "empty_name": "I don't know your name",
     "empty_email": "I don't know your email",
-    "name": "Name"
+    "name": "Name",
+    "delete_all": "Delete all data",
+    "delete_confirmation_title": "Are you sure?",
+    "delete_confirmation_description": "Once you press this button all your data will be permanently deleted and you will be logged out from your account"
   },
 
   "notification": {

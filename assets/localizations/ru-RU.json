@@ -159,7 +159,10 @@
   "profile": {
     "empty_name": "Я не знаю вашего имени",
     "empty_email": "Я не знаю вашей почты",
-    "name": "Имя"
+    "name": "Имя",
+    "delete_all": "Удалить все",
+    "delete_confirmation_title": "Точно?",
+    "delete_confirmation_description": "Как только вы нажмете эту кнопку, все ваши данные будут окончательно удалены, и вы выйдете из своей учетной записи"
   },
 
   "notification": {

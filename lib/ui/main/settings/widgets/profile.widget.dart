@@ -156,7 +156,7 @@ class ProfileWidgetState extends State<ProfileWidget> {
           ? Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
+                SizedBox(
                   height: Dimens.avatar_photo_size,
                   width: Dimens.avatar_photo_size,
                   child: ClipOval(
@@ -168,9 +168,7 @@ class ProfileWidgetState extends State<ProfileWidget> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  width: Margin.middle.w,
-                ),
+                SizedBox(width: Margin.middle.w),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

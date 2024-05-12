@@ -26,4 +26,20 @@ class UserInfoRepository extends RemoteRepository {
         .doc(userInfo.id)
         .update(userInfo.toMap());
   }
+
+  Future<bool> deleteAll(usr.UserInfo userInfo) async {
+    try {
+      await FirebaseFirestore.instance
+          .collection(CollectionName.USER_INFO)
+          .doc(userInfo.id)
+          .delete();
+
+      await FirebaseAuth.instance.currentUser?.delete();
+
+      return true;
+    } catch (e) {
+      print('Error deleting. Try again.');
+      return false;
+    }
+  }
 }

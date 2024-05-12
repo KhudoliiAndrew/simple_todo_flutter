@@ -11,17 +11,20 @@ class ButtonIconRounded extends StatelessWidget {
   final VoidCallback onTap;
   final EdgeInsets padding;
   final String? text;
+  final Alignment alignment;
   Color? textColor;
 
-  ButtonIconRounded(
-      {Key? key, this.backgroundColor,
-        this.iconColor,
-        this.icon,
-      required this.onTap,
-      this.padding = const EdgeInsets.all(0.0),
-      this.text,
-      this.textColor,})
-      : super(key: key);
+  ButtonIconRounded({
+    Key? key,
+    this.backgroundColor,
+    this.iconColor,
+    this.icon,
+    required this.onTap,
+    this.padding = const EdgeInsets.all(0.0),
+    this.alignment = Alignment.centerLeft,
+    this.text,
+    this.textColor,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,36 +33,38 @@ class ButtonIconRounded extends StatelessWidget {
     textColor = textColor ?? context.onSurface;
 
     return AnimatedGestureDetector(
+      onTap: onTap,
       child: Container(
         padding: padding,
         decoration: BoxDecoration(
-            color: backgroundColor,
-            borderRadius: BorderRadius.all(Radiuss.small_smaller),
-          ),
-        child: text != null && text!.isNotEmpty ? Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            icon != null ? Icon(
-              icon,
-              color: iconColor,
-            ) : Container(),
-            icon != null ? SizedBox(
-              width: Margin.small.w,
-            ) : Container(),
-            Text(
-                text!,
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-                color: textColor,
-              ),
-            ),
-          ],
-        ) : icon != null ? Icon(
-          icon,
-          color: iconColor,
-        ) : Container(),
+          color: backgroundColor,
+          borderRadius: BorderRadius.all(Radiuss.small_smaller),
+        ),
+        child: text != null && text!.isNotEmpty
+            ? Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (alignment == Alignment.centerLeft) getIcon(),
+                  if (alignment == Alignment.centerLeft && icon != null)
+                    SizedBox(width: Margin.small.w),
+                  Text(
+                    text!,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      color: textColor,
+                    ),
+                  ),
+                  if (alignment == Alignment.centerRight && icon != null)
+                    SizedBox(width: Margin.small.w),
+                  if (alignment == Alignment.centerRight) getIcon(),
+                ],
+              )
+            : getIcon(),
       ),
-      onTap: onTap,
     );
+  }
+
+  Widget getIcon() {
+    return icon != null ? Icon(icon, color: iconColor) : Container();
   }
 }
